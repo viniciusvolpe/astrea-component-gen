@@ -1,9 +1,9 @@
 {
   "name": "astrea-component-gen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "bin": {
-    "angular-component": "index.js"
+    "astrea-component": "index.js"
   },
   "dependencies": {
     "camelcase": "^4.1.0",

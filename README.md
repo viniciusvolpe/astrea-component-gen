@@ -2,11 +2,11 @@
 
 Install
 
-`npm install -g angular-component-generator`
+`npm install -g astrea-component-gen`
 
 Use
 
-`angular-component create my-component-name`
+`astrea-component create my-component-name`
 
 Generated components:
 
