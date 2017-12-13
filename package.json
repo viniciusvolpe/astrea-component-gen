@@ -1,6 +1,6 @@
 {
   "name": "astrea-component-gen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "bin": {
     "astrea-component": "index.js"
