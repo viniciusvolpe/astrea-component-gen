@@ -12,21 +12,34 @@ prog
     .command('create', 'Create a new angular component')
     .argument('<name>', 'Component name')
     .option('--short', 'Short files names')
+    .option('--r', 'React component')
     .action((args, options, logger) => {
         const name = args.name
         shell.mkdir(name)
         shell.cd(name)
-        if(options.short)
+        if(options.r) 
+            createReactComponent(name)
+        else if(options.short)
             createFilesWithShortNames(name)
         else
             createFilesWithFullNames(name)
         shell.ls('*.js').forEach(function (file) {
             shell.sed('-i', '{name}', name, file);
             shell.sed('-i', '{nameVar}', camelCase(name), file);
+            shell.sed('-i', '"./{name}"', `"./${name}"`, file);
+        });
+        shell.ls('*.jsx').forEach(function (file) {
+            shell.sed('-i', '{name}', name, file);
         });
     });
 
 prog.parse(process.argv);
+
+function createReactComponent(name) {
+    shell.cp(`${templatePath}/react/index.js`, `${localPath}/${name}/index.js`)
+    shell.cp(`${templatePath}/react/component.jsx`, `${localPath}/${name}/${name}.jsx`)
+    shell.touch(`${name}.test.js`)
+}
 
 function createFilesWithFullNames(name){
     shell.cp(`${templatePath}/component/component.js`, `${localPath}/${name}/${name}.component.js`)
