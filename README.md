@@ -1,11 +1,11 @@
-# Astrea components generatos
+# Astrea components generator
 
-*Components: *
+*Components*
 
 - Angular 1.5+
 - React
 
-# Install
+## Install
 
 `npm install -g astrea-component-gen`
 
@@ -34,7 +34,11 @@
         - test.js
 
 ## Create react components: 
+
 `astrea-component create MyComponentName --r`
+
+ *Generated components:*
+
     \MyComponentName
         - MyComponentName.jsx
         - index.js
